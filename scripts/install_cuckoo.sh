@@ -1,13 +1,12 @@
 #!/bin/bash
 
-apt-get install -y wget unzip zip
+apt-get install -y unzip zip git
 
-wget https://github.com/breachintelligence/ansible-cuckoo/archive/master.zip -O /home/cuckoo/ansible-cuckoo-master.zip
+git clone https://github.com/Svieg/ansible-cuckoo
 
 ls -lart /home/cuckoo
-cd /home/cuckoo/ && /usr/bin/unzip ansible-cuckoo-master.zip
 
-chown -R cuckoo.cuckoo /home/cuckoo/ansible-cuckoo-master
+chown -R cuckoo.cuckoo /home/cuckoo/ansible-cuckoo
 
-cd /home/cuckoo/ansible-cuckoo-master
+cd /home/cuckoo/ansible-cuckoo
 sudo ansible-playbook -i hosts site.yml --connection=local
